@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Alma Uygulaması</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        
+        <img src="{{ url_for('static', filename='images/istockphoto-1449128535-612x612.jpg') }}" alt="Logo" class="logo">
+
+        <h1>Not Alma Uygulamasına Hoş Geldiniz!</h1>
+        <a href="{{ url_for('notlar') }}">Notlarımı Görüntüle</a>
+    </div>
+</body>
+</html>

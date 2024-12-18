@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notlar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Notlar</h1>
+        
+        <form action="{{ url_for('notlar') }}" method="POST">
+            <textarea name="note" placeholder="Yeni notunuzu buraya yazın..." required></textarea>
+            <button type="submit">Not Ekle</button>
+        </form>
+
+        <h2>Kaydedilen Notlar:</h2>
+        <ul>
+            {% for note in notes %}
+                <li>
+                    {{ note }}
+                    <a href="{{ url_for('sil_not', index=loop.index0) }}" class="sil-btn">Sil</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('cikis') }}">Çıkış</a>
+    </div>
+</body>
+</html>
+
+
+
+
+

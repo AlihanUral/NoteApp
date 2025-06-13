@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not Alma Uygulaması</title>
+    <title>NoteApp - Ana Sayfa</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        
-        <img src="{{ url_for('static', filename='images/istockphoto-1449128535-612x612.jpg') }}" alt="Logo" class="logo">
-
-        <h1>Not Alma Uygulamasına Hoş Geldiniz!</h1>
-        <a href="{{ url_for('notlar') }}">Notlarımı Görüntüle</a>
+        <h1>NoteApp'e Hoş Geldiniz</h1>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+            Notlarınızı kolayca oluşturun, düzenleyin ve yönetin.
+        </p>
+        <div style="text-align: center;">
+            <a href="{{ url_for('notlar') }}" style="display: inline-block; background: #3498db; color: white; padding: 1rem 2rem; border-radius: 6px; text-decoration: none; transition: background 0.3s ease;">
+                Notlarıma Git
+            </a>
+        </div>
     </div>
 </body>
 </html>

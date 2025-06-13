@@ -3,29 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notlar</title>
+    <title>NoteApp - Notlarım</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Notlar</h1>
+        <h1>Notlarım</h1>
         
+        <!-- Add Note Form -->
         <form action="{{ url_for('notlar') }}" method="POST">
-            <textarea name="note" placeholder="Yeni notunuzu buraya yazın..." required></textarea>
+            <div class="note-input-container">
+                <textarea name="note" placeholder="Yeni notunuzu buraya yazın..." required></textarea>
+                <input type="text" name="title" placeholder="Not başlığı" class="note-title-input">
+            </div>
+            <input type="text" name="tags" placeholder="Etiketler (virgülle ayırın, örn: önemli, iş, kişisel)" 
+                   value="{{ request.form.get('tags', '') }}" class="tag-input">
             <button type="submit">Not Ekle</button>
         </form>
 
-        <h2>Kaydedilen Notlar:</h2>
-        <ul>
-            {% for note in notes %}
-                <li>
-                    {{ note }}
-                    <a href="{{ url_for('sil_not', index=loop.index0) }}" class="sil-btn">Sil</a>
-                </li>
-            {% endfor %}
-        </ul>
+        <!-- Search and Filter Forms -->
+        <div class="search-filter-container">
+            <form action="{{ url_for('notlar') }}" method="GET" class="search-form">
+                <input type="text" name="search" placeholder="Notlarda ara..." value="{{ request.args.get('search', '') }}">
+                <button type="submit">Ara</button>
+            </form>
 
-        <a href="{{ url_for('cikis') }}">Çıkış</a>
+            <form action="{{ url_for('notlar') }}" method="GET" class="tag-filter-form">
+                <select name="tag" onchange="this.form.submit()">
+                    <option value="">Tüm Etiketler</option>
+                    {% for tag in all_tags %}
+                        <option value="{{ tag }}" {% if tag == current_tag %}selected{% endif %}>{{ tag }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        <!-- Notes List -->
+        <h2>Kaydedilen Notlar</h2>
+        {% if notes %}
+            <ul>
+                {% for note in notes %}
+                    <li>
+                        <div class="note-content">
+                            {% if note.title %}
+                                <h3 class="note-title">{{ note.title }}</h3>
+                            {% endif %}
+                            <span>{{ note.content }}</span>
+                            {% if note.tags %}
+                                <div class="tags">
+                                    {% for tag in note.tags %}
+                                        <span class="tag">{{ tag }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <a href="{{ url_for('sil_not', index=loop.index0) }}" class="sil-btn">Sil</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="text-align: center; color: #666; margin: 2rem 0;">
+                Henüz not eklenmemiş. Yeni bir not eklemek için yukarıdaki formu kullanın.
+            </p>
+        {% endif %}
+
+        <a href="{{ url_for('cikis') }}">Ana Sayfaya Dön</a>
     </div>
 </body>
 </html>

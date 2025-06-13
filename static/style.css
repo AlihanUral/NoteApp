@@ -1,3 +1,4 @@
+/* Modern CSS Reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,122 +6,270 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f5f5f5;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-h1, h2 {
-    color: #4e73df;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 1rem;
-    margin-top: 20px;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 .container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    margin: 20px;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+h1 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: #34495e;
+    margin: 1.5rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+/* Form Styles */
 form {
+    margin-bottom: 2rem;
+}
+
+/* Note Input Container */
+.note-input-container {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 textarea {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    flex: 2;
+    min-height: 120px;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
     font-size: 1rem;
-    resize: none;
-    font-family: 'Arial', sans-serif;
+    resize: vertical;
     transition: border-color 0.3s ease;
 }
 
-textarea:focus {
+.note-title-input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    height: 120px;
+    transition: border-color 0.3s ease;
+}
+
+.note-title-input:focus {
     outline: none;
-    border-color: #4e73df;
+    border-color: #3498db;
+}
+
+/* Note Title in List */
+.note-title {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
 button {
-    padding: 10px;
-    background-color: #4e73df;
+    background: #3498db;
     color: white;
+    padding: 0.8rem 1.5rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background-color: #2e59d9;
+    background: #2980b9;
 }
 
+/* Search Form */
+form[action*="notlar"] {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Notes List */
 ul {
-    list-style-type: none;
-    margin-top: 30px;
+    list-style: none;
 }
 
 li {
-    background-color: #f8f9fc;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 5px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    font-size: 1rem;
-    color: #555;
+    background: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.2s ease;
 }
 
+li:hover {
+    transform: translateX(5px);
+}
+
+/* Delete Button */
 .sil-btn {
-    color: red;
+    background: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
     text-decoration: none;
     font-size: 0.9rem;
-    padding: 5px;
+    transition: background 0.3s ease;
 }
 
 .sil-btn:hover {
-    text-decoration: underline;
+    background: #c0392b;
 }
 
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 250px;
-    height: auto; 
+/* Exit Link */
+a[href*="cikis"] {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #7f8c8d;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-footer {
-    text-align: center;
-    margin-top: 20px;
+a[href*="cikis"]:hover {
+    color: #34495e;
 }
 
-footer p {
-    color: #888;
+/* Tag Input */
+.tag-input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.tag-input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Search and Filter Container */
+.search-filter-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-form {
+    flex: 2;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tag-filter-form {
+    flex: 1;
+}
+
+select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tag {
+    background: #e1f0fa;
+    color: #2980b9;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
     font-size: 0.9rem;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Note Content */
+.note-content {
+    flex: 1;
+    margin-right: 1rem;
+    word-break: break-word;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    form[action*="notlar"] {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .search-filter-container {
+        flex-direction: column;
+    }
+    
+    .search-form, .tag-filter-form {
+        width: 100%;
+    }
+    
+    select {
+        width: 100%;
+    }
+
+    .note-input-container {
+        flex-direction: column;
+    }
+    
+    .note-title-input {
+        height: 60px;
+    }
 }
